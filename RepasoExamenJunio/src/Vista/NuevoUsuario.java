@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Usuario;
+import java.awt.Component;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -26,6 +28,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
      */
     public NuevoUsuario() {
         initComponents();
+        descativarcomponentes();
     }
 
     /**
@@ -37,7 +40,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelComponentes = new javax.swing.JPanel();
         jButtonVaciarDatos = new javax.swing.JButton();
         jButtonAddUsu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -50,10 +53,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jButtonSelectImg = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jSpinnerEdad = new javax.swing.JSpinner();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear Nuevo Uusario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(47, 53, 229))); // NOI18N
+        jPanelComponentes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear Nuevo Uusario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(47, 53, 229))); // NOI18N
 
         jButtonVaciarDatos.setText("Borrar Datos");
         jButtonVaciarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,75 +120,92 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jLabel4.setText("Edad");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelComponentesLayout = new javax.swing.GroupLayout(jPanelComponentes);
+        jPanelComponentes.setLayout(jPanelComponentesLayout);
+        jPanelComponentesLayout.setHorizontalGroup(
+            jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelComponentesLayout.createSequentialGroup()
                 .addGap(153, 153, 153)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelComponentesLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel4)))
                 .addGap(96, 96, 96)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldNombre)
                     .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jComboBoxEquipos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSpinnerEdad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComponentesLayout.createSequentialGroup()
+                        .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonAddUsu)
                             .addComponent(jButtonSelectImg))
                         .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComponentesLayout.createSequentialGroup()
                         .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanelComponentesLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jButtonVaciarDatos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelComponentesLayout.setVerticalGroup(
+            jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelComponentesLayout.createSequentialGroup()
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelComponentesLayout.createSequentialGroup()
+                        .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelComponentesLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
                                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanelComponentesLayout.createSequentialGroup()
                                 .addGap(39, 39, 39)
                                 .addComponent(jButtonSelectImg)))
                         .addGap(72, 72, 72)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(78, 78, 78)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jComboBoxEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelComponentesLayout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSpinnerEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addGroup(jPanelComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVaciarDatos)
                     .addComponent(jButtonAddUsu))
                 .addGap(48, 48, 48))
         );
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Activar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,14 +213,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelComponentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -215,8 +239,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
     private void jButtonVaciarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVaciarDatosMouseClicked
         // TODO add your handling code here:
+        
         jTextFieldContraseña.setText("");
         jTextFieldNombre.setText("");
+        jSpinnerEdad.setValue(0);
+        jLabelImagen.setText("Añadir Imagen");
+        jLabelImagen.setIcon(null);
+        
     }//GEN-LAST:event_jButtonVaciarDatosMouseClicked
 
     private void jButtonSelectImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSelectImgMouseClicked
@@ -246,6 +275,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
             Usuario u = new Usuario(nombre,pass,equipo,edad,imagen);
             this.vUsuario.add(u);
             Controlador.IODatos.addusers(u);
+            jTextFieldContraseña.setText("");
+        jTextFieldNombre.setText("");
+        jSpinnerEdad.setValue(0);
+        jLabelImagen.setText("Añadir Imagen");
+        jLabelImagen.setIcon(null);
         }
         else{
                 JOptionPane.showMessageDialog(rootPane, "se ha introducido mal algun dato, revisalo y vuelve a intentar");
@@ -266,7 +300,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "La contraseña tiene el formato correcto");
             
         }else{
-            JOptionPane.showMessageDialog(rootPane, "El formato de la contraseña es incorecto, debe tener un minimo de 6 caracteres y un maximo de 10");
+            JOptionPane.showMessageDialog(rootPane, "El formato de la contraseña es incorrecto, debe tener un minimo de 6 caracteres y un maximo de 10");
         }
         
     }//GEN-LAST:event_jTextFieldContraseñaFocusLost
@@ -283,6 +317,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jTextFieldNombreFocusLost
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        activarcomponentes();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +357,29 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void descativarcomponentes(){
+        Component[] componentes = jPanelComponentes.getComponents();
+        
+        for (Component com : componentes) {
+            if(com instanceof JScrollPane)
+                com.setVisible(false);
+            else{
+                com.setEnabled(false);
+            }
+        }
+    }
+    public void activarcomponentes(){
+        Component[] componentes = jPanelComponentes.getComponents();
+        
+        for (Component com : componentes) {
+            if(com instanceof JScrollPane)
+                com.setVisible(true);
+            else{
+                com.setEnabled(true);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddUsu;
@@ -329,7 +391,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelImagen;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanelComponentes;
     private javax.swing.JSpinner jSpinnerEdad;
     private javax.swing.JTextField jTextFieldContraseña;
     private javax.swing.JTextField jTextFieldNombre;

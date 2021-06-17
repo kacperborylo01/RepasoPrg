@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author alumnodaw
  */
 public class IODatos {
-    private static final String URL= "jdbc:mysql://192.168.4.111:3306/usuarios_repaso";
+    private static final String URL= "jdbc:mysql://192.168.4.121:3306/usuarios_repaso";
     private static final String USER="admin";
     private static final String PASS="Admin1234";
     
