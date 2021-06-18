@@ -8,6 +8,7 @@ import Modelo.Usuario;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -76,4 +77,30 @@ public class IODatos {
         return existe;
                  
 }
+    public static DefaultTableModel rellenartablabbdd(){
+        DefaultTableModel tabla = new DefaultTableModel();
+        tabla.addColumn("nombre");
+        tabla.addColumn("contraseña");
+        tabla.addColumn("equipo");
+        tabla.addColumn("edad");
+        tabla.addColumn("foto_perfil");
+        
+        String sentencia = "select * from usuarios";
+        
+        try (Connection con= DriverManager.getConnection(URL, USER, PASS);){
+            
+            PreparedStatement ps = con.prepareStatement(sentencia);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Object[] fila = {rs.getString("nombre"),rs.getString("contra"),rs.getString("equipo"),rs.getInt("edad"),rs.getString("ruta_foto")};
+                tabla.addRow(fila);
+            
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(IODatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tabla;
+    }
 }

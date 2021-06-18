@@ -47,6 +47,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         jTextFieldUser.setText("User");
+        jTextFieldUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldUserFocusGained(evt);
+            }
+        });
 
         jPasswordFieldContraseña.setText("jPasswordField1");
 
@@ -150,15 +155,24 @@ public class Login extends javax.swing.JFrame {
         }
         
         if (Controlador.IODatos.comprobarlogin(nombre, pass)) {
-            Inicio in = new Inicio();
+            Inicio in = new Inicio(nombre);
             in.setVisible(true);
             this.dispose();
             
         }else{
             JOptionPane.showMessageDialog(rootPane, "Este usuario no existe o has introducido mal los datos");
         }
+        if(jPasswordFieldContraseña.getPassword().equals("") || jTextFieldUser.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "El campo de usuario o contraseña esta vacio, reviselo por favor");
+        }
         
     }//GEN-LAST:event_jButtonEntrarMouseClicked
+
+    private void jTextFieldUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUserFocusGained
+        // TODO add your handling code here:
+        jTextFieldUser.setText("");
+        jPasswordFieldContraseña.setText("");
+    }//GEN-LAST:event_jTextFieldUserFocusGained
 
     /**
      * @param args the command line arguments
