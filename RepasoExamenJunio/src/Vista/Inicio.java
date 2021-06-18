@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Modelo.Usuario;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author alumnodaw
@@ -44,6 +48,11 @@ public class Inicio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,6 +120,19 @@ public class Inicio extends javax.swing.JFrame {
         log.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel mTabla = (DefaultTableModel) jTable1.getModel();
+        ArrayList<Usuario> vUsuarios = new ArrayList();
+        
+        for (int i = 0; i < mTabla.getRowCount(); i++) {
+            Usuario u = new Usuario((String) mTabla.getValueAt(i, 0),(String) mTabla.getValueAt(i, 1), (String) mTabla.getValueAt(i, 2), (Integer) mTabla.getValueAt(i, 3), (String) mTabla.getValueAt(i, 4));
+            vUsuarios.add(u);
+        }
+        Controlador.IODatos.generarficherobinario(vUsuarios);
+        Controlador.IODatos.generarficherotxt(vUsuarios);
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments

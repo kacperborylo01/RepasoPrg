@@ -5,7 +5,15 @@
  */
 package Controlador;
 import Modelo.Usuario;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -102,5 +110,58 @@ public class IODatos {
             Logger.getLogger(IODatos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return tabla;
+    }
+    
+    public static void generarficherobinario(ArrayList<Usuario> vUsuarios){
+        String ruta = "Datos_Binarios.dat";
+        File f = new File(ruta);
+        
+        
+        try(FileOutputStream fo = new FileOutputStream(f);
+            ObjectOutputStream escribir = new ObjectOutputStream(fo);) { 
+            
+            escribir.writeObject(vUsuarios);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IODatos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IODatos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+    }
+    
+    public static void generarficherotxt(ArrayList<Usuario> vUsuarios){
+        String ruta = "informe.txt";
+        File f = new File(ruta);
+        
+        String nombre;
+        String contra;
+        String equipo;
+        int edad;
+        String edad_bien;
+        String foto;
+        int contador=1;
+        
+        
+        
+        try (FileWriter fw = new FileWriter(f);
+            PrintWriter escribir = new PrintWriter(fw);){
+            
+            for (Usuario usu : vUsuarios) {
+                nombre = usu.getNombre();
+                contra = usu.getContra();
+                equipo = usu.getEquipo();
+                edad = usu.getEdad();
+                edad_bien = String.valueOf(edad);
+                foto = usu.getRuta_foto();
+                
+                escribir.println("Aficionado "+contador+": "+nombre+" --- "+contra+" --- "+equipo+" --- "+edad+ " --- "+foto);
+                contador++;
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(IODatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
